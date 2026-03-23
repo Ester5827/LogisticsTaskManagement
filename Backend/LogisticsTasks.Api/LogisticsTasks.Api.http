@@ -1,0 +1,9 @@
+@LogisticsTasks.Api_HostAddress = http://localhost:5086
+
+POST https://localhost:44327/api/tasks
+Content-Type: application/json
+
+"משימה לבדיקת התור"
+
+
+###

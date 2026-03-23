@@ -1,0 +1,33 @@
+<div class="dashboard-container">
+  <h1>לוח בקרה לוגיסטי - Real-time</h1>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-label">סה"כ משימות:</span>
+      <span class="stat-value">100</span>
+    </div>
+    <div class="stat-item highlight">
+      <span class="stat-label">משימות שעודכנו:</span>
+      <span class="stat-value">{{ updatedCount$ | async }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="!(isConnected$ | async)" class="error-banner">
+    <strong>⚠️ אבד הקשר עם השרת:</strong> מנסה לחדש את החיבור ל-WebSocket...
+  </div>
+
+  <cdk-virtual-scroll-viewport itemSize="70" class="viewport">
+    <div *cdkVirtualFor="let task of (tasks$ | async); trackBy: trackByFn" class="task-card">
+
+      <div class="task-info">
+        <span class="task-id">מזהה משימה: #{{task.id}}</span>
+        <span class="task-title">{{task.title}}</span>
+      </div>
+
+      <div class="status-badge" [class.updated]="task.status === 'Updated'">
+        {{ task.status === 'Updated' ? 'עודכן כעת' : 'ממתין' }}
+      </div>
+
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
