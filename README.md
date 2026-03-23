@@ -1,5 +1,5 @@
 ﻿# Logistics Task Management System 
-# Author: אסתר בירנצוויג
+ Author: אסתר בירנצוויג
 
 מערכת מקצה לקצה לניהול משימות לוגיסטיות בזמן אמת, הכוללת Backend מבוסס תורים ו-Frontend אופטימיזציוני.
 
